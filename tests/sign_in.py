@@ -7,13 +7,16 @@ from selenium.webdriver.common.by import By
 from util import constants
 
 class TestSignIn:
+    # Метод проверки входа (авторизации).
+    # Для оптимизации была использована параметризация с эндпоинтом (ссылка на страницу) откуда начинается тест,
+    # и соответствующей кнопкой по заданию.
     @pytest.mark.parametrize('enter_button, endpoint', [
         (constants.ENTER_IN_ACCOUNT_BUTTON, constants.STELLAR_BURGERS),
         (constants.PERSONAL_CABINET_BUTTON, constants.STELLAR_BURGERS),
         (constants.LOGIN_TEXT, constants.REGISTER_ENDPOINT),
         (constants.LOGIN_TEXT, constants.FOGOT_PASSWORD_ENDPOINT),
     ])
-    def test_personal_cabinet(self, enter_button, endpoint):
+    def test_sign_in(self, enter_button, endpoint):
         credentials = constants.get_test_credentials()
 
         driver = webdriver.Chrome()
