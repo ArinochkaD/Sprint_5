@@ -16,11 +16,11 @@ class TestsRegistration:
 
         wait = WebDriverWait(driver, 100)
 
-        personal_cabinet = wait.until(expected_conditions.element_to_be_clickable((By.LINK_TEXT, "Личный Кабинет")))
+        personal_cabinet = wait.until(expected_conditions.element_to_be_clickable(constants.PERSONAL_CABINET_BUTTON))
         
         personal_cabinet.click()
 
-        registration = wait.until(expected_conditions.element_to_be_clickable((By.LINK_TEXT, "Зарегистрироваться")))
+        registration = wait.until(expected_conditions.element_to_be_clickable(constants.REGISRATION_TEXT))
 
         registration.click()
 
@@ -55,11 +55,11 @@ class TestsRegistration:
 
         wait = WebDriverWait(driver, 100)
 
-        personal_cabinet = wait.until(expected_conditions.element_to_be_clickable((By.LINK_TEXT, "Личный Кабинет")))
+        personal_cabinet = wait.until(expected_conditions.element_to_be_clickable(constants.PERSONAL_CABINET_BUTTON))
         
         personal_cabinet.click()
 
-        registration = wait.until(expected_conditions.element_to_be_clickable((By.LINK_TEXT, "Зарегистрироваться")))
+        registration = wait.until(expected_conditions.element_to_be_clickable(constants.REGISRATION_TEXT))
 
         registration.click()
 
