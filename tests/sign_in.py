@@ -8,25 +8,25 @@ from util import constants
 
 class TestSignIn:
     # Метод проверки входа (авторизации).
-    # Для оптимизации была использована параметризация с эндпоинтом (ссылка на страницу) откуда начинается тест,
+    # Для оптимизации была использована параметризация с URL (ссылка на страницу) откуда начинается тест,
     # и соответствующей кнопкой по заданию.
-    @pytest.mark.parametrize('enter_button, endpoint', [
+    @pytest.mark.parametrize('enter_button, url', [
         (constants.ENTER_IN_ACCOUNT_BUTTON, constants.STELLAR_BURGERS),
         (constants.PERSONAL_CABINET_BUTTON, constants.STELLAR_BURGERS),
-        (constants.LOGIN_TEXT, constants.REGISTER_ENDPOINT),
-        (constants.LOGIN_TEXT, constants.FOGOT_PASSWORD_ENDPOINT),
+        (constants.LOGIN_TEXT, constants.REGISTER_URL),
+        (constants.LOGIN_TEXT, constants.FOGOT_PASSWORD_URL),
     ])
-    def test_sign_in(self, enter_button, endpoint):
+    def test_sign_in(self, enter_button, url):
         credentials = constants.get_test_credentials()
 
         driver = webdriver.Chrome()
-        driver.get(endpoint)
+        driver.get(url)
 
         wait = WebDriverWait(driver, 100)
 
-        enter_button_element = wait.until(expected_conditions.element_to_be_clickable(enter_button))
+        enter_button = wait.until(expected_conditions.element_to_be_clickable(enter_button))
         
-        enter_button_element.click()
+        enter_button.click()
 
         email = wait.until(expected_conditions.visibility_of_element_located(constants.EMAIL_TEXTFIELD))
 
