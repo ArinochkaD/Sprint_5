@@ -1,7 +1,7 @@
 import random
 
 from datetime import datetime #выбрана библиотека дата+время для исключения повторений в поле электронная почта и пароль
-from util.constants import DOMAINS
+from util.constants import Domains
 
 class Credentials:
     def __init__(self, name, email, password):
@@ -9,10 +9,12 @@ class Credentials:
         self.email = email
         self.password = password
 
-def generate_credentials():
-    index = int(random.random() * 10)
-    number = int(datetime.now().timestamp())
-    name = f'arina{number}'
-    email = name + DOMAINS[index]
-    password = number
-    return Credentials(name, email, password)
+class CredentialsGenerator:
+    @staticmethod
+    def generate():
+        index = int(random.random() * 10)
+        number = int(datetime.now().timestamp())
+        name = f'arina{number}'
+        email = name + Domains.DOMAINS[index]
+        password = number
+        return Credentials(name, email, password)
