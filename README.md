@@ -71,19 +71,21 @@
 
 Структора проекта:
 
-- tests/registration.py - тесты для регистрации
+- tests/test_registration.py - тесты для регистрации
 
-- tests/sign_in.py - тесты авторизации
+- tests/test_sign_in.py - тесты авторизации
 
-- tests/personal_cabinet.py - переход в личный кабинет
+- tests/test_personal_cabinet.py - переход в личный кабинет
 
-- tests/constructor.py - переход в конструктор из личного кабинета
+- tests/test_constructor.py - переход в конструктор из личного кабинета
 
-- tests/logout.py - выход из аккаунта
+- tests/test_logout.py - выход из аккаунта
 
-- tests/chapter_transition.py - переключение разделов в конструкторе
+- tests/test_chapter_transition.py - переключение разделов в конструкторе
 
 - util/constants.py - константы проект, данные доступа
+
+- util/locators.py - локаторы компонент
 
 - util/credentials_generator.py - генератор данных авторизации
 
