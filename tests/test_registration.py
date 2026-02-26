@@ -27,8 +27,7 @@ class TestsRegistration:
         password.send_keys(credentials.password)
         registaration_button = wait.until(expected_conditions.element_to_be_clickable(RegistrationLocators.REGISRATION_BUTTON))
         registaration_button.click()
-        login_button = wait.until(expected_conditions.element_to_be_clickable(SignInLocators.LOGIN_BUTTON))
-        assert login_button.is_displayed()
+        assert wait.until(expected_conditions.element_to_be_clickable(SignInLocators.LOGIN_BUTTON)).is_displayed()
 
     @pytest.mark.parametrize('wrong_pass', ['0', '12', '123', '1234', '12345'])
     def test_unsuccessful_registration(self, wrong_pass, driver):
@@ -47,5 +46,4 @@ class TestsRegistration:
         password.send_keys(wrong_pass)
         registaration_button = wait.until(expected_conditions.element_to_be_clickable(RegistrationLocators.REGISRATION_BUTTON))
         registaration_button.click()
-        error_text = wait.until(expected_conditions.element_to_be_clickable(RegistrationLocators.ERROR_REGISTRATION_PASSWORD))
-        assert error_text.is_displayed()
+        assert wait.until(expected_conditions.element_to_be_clickable(RegistrationLocators.ERROR_REGISTRATION_PASSWORD)).is_displayed()

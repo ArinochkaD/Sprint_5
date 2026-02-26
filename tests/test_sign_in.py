@@ -31,5 +31,4 @@ class TestSignIn:
         password.send_keys(credentials.password)
         login_button = wait.until(expected_conditions.element_to_be_clickable(SignInLocators.LOGIN_BUTTON))
         login_button.click()
-        order_button = wait.until(expected_conditions.element_to_be_clickable(ConstructorLocators.PLACE_AN_ORDER_BUTTON))
-        assert order_button.is_displayed()
+        assert wait.until(expected_conditions.element_to_be_clickable(ConstructorLocators.PLACE_AN_ORDER_BUTTON)).is_displayed()

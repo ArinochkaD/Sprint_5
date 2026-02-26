@@ -20,5 +20,4 @@ class TestConstructor:
         construction_button = wait.until(expected_conditions.element_to_be_clickable(constructor_element))
         construction_button.click()
         # Ищем кнопку "Оформить заказ" на экране "Конструктор".
-        order_button = wait.until(expected_conditions.element_to_be_clickable(ConstructorLocators.PLACE_AN_ORDER_BUTTON))
-        assert order_button.is_displayed()
+        assert wait.until(expected_conditions.element_to_be_clickable(ConstructorLocators.PLACE_AN_ORDER_BUTTON)).is_displayed()

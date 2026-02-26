@@ -14,5 +14,4 @@ class TestLogout:
         logout_button = wait.until(expected_conditions.element_to_be_clickable(PersonalCabinetLocators.LOGOUT_BUTTON))
         logout_button.click()
         # Ищем форму авторизации.
-        auth_form = wait.until(expected_conditions.visibility_of_element_located(SignInLocators.AUTH_FORM))
-        assert auth_form.is_displayed()
+        assert wait.until(expected_conditions.visibility_of_element_located(SignInLocators.AUTH_FORM)).is_displayed()
